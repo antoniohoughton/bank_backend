@@ -72,6 +72,8 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTH_USER_MODEL = 'authAppExample.User'
+
 ROOT_URLCONF = 'authModuleExample.urls'
 
 TEMPLATES = [
