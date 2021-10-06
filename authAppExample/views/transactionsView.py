@@ -12,9 +12,6 @@ class TransactionsAccountView(generics.ListAPIView):
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
-        print("Request:", self.request)
-        print("Args:", self.args)
-        print("KWArgs:", self.kwargs)
         token        = self.request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data   = tokenBackend.decode(token,verify=False)
@@ -33,9 +30,6 @@ class TransactionsDetailView(generics.RetrieveAPIView):
     queryset           = Transaction.objects.all()
 
     def get(self, request, *args, **kwargs):
-        print("Request:", request)
-        print("Args:", args)
-        print("KWArgs:", kwargs)
         token        = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data   = tokenBackend.decode(token,verify=False)
@@ -52,9 +46,6 @@ class TransactionCreateView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, *args, **kwargs):
-        print("Request:", request)
-        print("Args:", args)
-        print("KWArgs:", kwargs)
         token        = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data   = tokenBackend.decode(token,verify=False)
@@ -76,9 +67,6 @@ class TransactionsUpdateView(generics.UpdateAPIView):
     queryset           = Transaction.objects.all()
 
     def put(self, request, *args, **kwargs):
-        print("Request:", request)
-        print("Args:", args)
-        print("KWArgs:", kwargs)
         token        = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data   = tokenBackend.decode(token,verify=False)
@@ -96,9 +84,6 @@ class TransactionsDeleteView(generics.DestroyAPIView):
     queryset           = Transaction.objects.all()
 
     def delete(self, request, *args, **kwargs):
-        print("Request:", request)
-        print("Args:", args)
-        print("KWArgs:", kwargs)
         token        = request.META.get('HTTP_AUTHORIZATION')[7:]
         tokenBackend = TokenBackend(algorithm=settings.SIMPLE_JWT['ALGORITHM'])
         valid_data   = tokenBackend.decode(token,verify=False)
