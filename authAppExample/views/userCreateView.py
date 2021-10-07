@@ -8,9 +8,13 @@ class UserCreateView(views.APIView):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-
-        token_data = {"username":request.data['username'],
-                      "password":request.data['password']}
-        token_serializer = TokenObtainPairSerializer(data=token_data)
-        token_serializer.is_valid(raise_exception=True)
-        return Response(token_serializer.validated_data, status=status.HTTP_201_CREATED)
+        
+        tokenData = {"username":request.data["username"],
+                    "password":request.data["password"]}
+        try:
+            tokenSerializer = TokenObtainPairSerializer(data=tokenData)
+            tokenSerializer.is_valid(raise_exception=True)
+            return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            print(e)
+            return Response('Error in token generation', status=status.HTTP_500_INTERNAL_SERVER_ERROR)
