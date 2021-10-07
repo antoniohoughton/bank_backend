@@ -1,4 +1,4 @@
-# bank_backend
+# bank_backend P8
 Este es un ejemplo de Backend usando __DjangoRestFramework__, y aplicando el flujo de:
 models -> serializers -> views -> urls
 
