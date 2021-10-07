@@ -4,15 +4,13 @@ from rest_framework                    import serializers
 
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Transaction
-        fields = ['origin_account', 'destiny_account', 'amount', 
-                    'register_date', 'note']
+        model  = Transaction
+        fields = ['origin_account', 'destiny_account', 'amount', 'register_date', 'note']
     
     def to_representation(self, obj):
         account_origin  = Account.objects.get(id=obj.origin_account_id)
         account_destiny = Account.objects.get(id=obj.destiny_account_id)
         transaction     = Transaction.objects.get(id=obj.id)
-
         return {
             'id'            : transaction.id,
             'amount'        : transaction.amount,
