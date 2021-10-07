@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
-from pathlib  import Path
-from datetime import timedelta
+from   pathlib  import Path
+from   datetime import timedelta
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#law0p2#9^r%v$h66yk%t-g&32%b23nj17(yeliop(j=y6$bax'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -101,10 +102,10 @@ WSGI_APPLICATION = 'authModuleExample.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'   : 'django.db.backends.postgresql_psycopg2',
-        'NAME'     : 'p8_bank',
-        'USER'     : 'postgres',
-        'PASSWORD' : 'postgres',
-        'HOST'     : 'localhost',
+        'NAME'     : 'dah3e98f302np8',
+        'USER'     : 'bkeetnlmfdctpx',
+        'PASSWORD' : 'a77e26495c7def8a47b66d78daa89cbcee69a85eab366442029fe5ada4db73a0',
+        'HOST'     : 'ec2-54-196-33-23.compute-1.amazonaws.com',
         'PORT'     : '5432'
     }
 }
@@ -152,3 +153,4 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+django_heroku.settings(locals())
