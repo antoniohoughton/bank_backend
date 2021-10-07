@@ -1,3 +1,4 @@
-from .userCreateView import UserCreateView
-from .userDetailView import UserDetailView
-from .transactionsView import TransactionCreateView, TransactionsAccountView, TransactionsDeleteView, TransactionsDetailView, TransactionsUpdateView
+from .userCreateView   import UserCreateView
+from .userDetailView   import UserDetailView
+from .transactionsView import TransactionsAccountView, TransactionsDetailView, TransactionCreateView, \
+                              TransactionsDeleteView, TransactionsUpdateView
